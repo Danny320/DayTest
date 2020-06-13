@@ -12,40 +12,46 @@ import java.util.*;
 
 
 public class TestDemo{
-
-    public static void main(String[] args) {
+    public static void main7(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Queue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
+        while (sc.hasNext()) {
+            String str = sc.nextLine();
+            String[] s = str.split(" ");
+            int[] num = new int[s.length-1];
+            for(int i = 0; i < s.length-1;i++) {
+                num[i]  = Integer.parseInt(s[i]);
             }
-        });
-       int[] arr = new int[100];
-       int i = 0;
-       while (sc.hasNextInt()) {
-           String temp=sc.nextLine();
-           String[] arr3=temp.split(" ");
-           int[] result=new int[arr.length-1];
-           i++;
-       }
-       int k = arr[--i];
-       int[] arr2 = new int[--i];
-       for(int j = 0; j < i;j++) {
-           arr2[j] = arr[j];
-       }
-       int j = 0;
-       while ( j < arr2.length){
-            if(j <= k) {
-                queue.offer(arr2[j]);
-            }else if(queue.peek() > arr2[j]){
-                queue.poll();
-                queue.offer(arr2[j]);
+            int k = Integer.parseInt(s[s.length-1]);
+           Queue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+               @Override
+               public int compare(Integer o1, Integer o2) {
+                   return o2-o1;
+               }
+           });
+          for(int i = 0; i < num.length; i++) {
+              if(i < k) {
+                  queue.offer(num[i]);
+                  continue;
+              }
+              int tmp = queue.peek();
+              if(tmp > num[i]) {
+                  queue.poll();
+                  queue.offer(num[i]);
+              }
+          }
+          int[] arr = new int[queue.size()];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = queue.poll();
+            }
+           Arrays.sort(arr);
+
+            for (int v : arr
+                 ) {
+                System.out.print(v+" ");
+
             }
         }
-       System.out.println(queue);
     }
-
     public static void main6(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextInt()) {
