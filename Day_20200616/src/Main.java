@@ -16,7 +16,7 @@ import java.util.Scanner;
 /**
  * Created by Halley on 2017/8/11.
  */
- class Main {
+ class Main1 {
     public static final long LIMIT = 300000;//最多搜索次数
     public static final long N = 1000000007;//求余
 
@@ -67,7 +67,7 @@ class UnusualAdd {
         return sum;
     }
 }
-public class Main1 {
+public class Main{
 
 
     public static void main(String[] args) {
