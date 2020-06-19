@@ -39,12 +39,16 @@ public class TestDemo {
     }
 
 
+
+    
     public static void main1(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext())
         {
-            BigInteger n1 = scanner.nextBigInteger();
-            BigInteger n2 = scanner.nextBigInteger();
+            String s1 = scanner.next();
+            String s2 = scanner.next();
+            BigInteger n1 = new BigInteger(s1);
+            BigInteger n2 = new BigInteger(s1);
             System.out.println(n1.add(n2));
         }
 
