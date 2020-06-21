@@ -10,6 +10,7 @@ import java.util.Scanner;
  * @Date: 2020-06-18 21:54
  * @time: 21:54
  **/
+
 public class TestDemo {
     public static void func(char ch,int n) {
         for (int i = 0; i < n/2+n%2; i++) {
