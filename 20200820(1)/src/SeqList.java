@@ -183,4 +183,44 @@ public class SeqList {
 
     }
 
+    //判断链表中是否有环
+    public boolean hasCycle() {
+        Node fast= this.head;
+        Node slow = this.head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                return true;
+            }
+        }
+      return false;
+    }
+
+
+    //返回环彻底入口位置
+    public Node detectCycle() {
+        Node fast = this.head;
+        Node slow = this.head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                break;
+            }
+        }
+        if(fast == null && fast.next == null) {
+            return null;
+        }
+
+        slow = this.head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+
+        }
+        return slow;
+    }
+
+
 }
