@@ -223,4 +223,28 @@ public class SeqList {
     }
 
 
+    //反转单链表
+    public Node reverseList() {
+        Node prev = null;
+        Node cur = this.head;
+        Node newHead = null;
+        while (cur != null) {
+            Node curNext = cur.next;
+            if(curNext == null) {
+                newHead = cur;
+            }
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
+        return newHead;
+    }
+
+
+    //反转单链表（头插法）
+    public Node reverseList2() {
+        Node
+    }
+
+
 }
