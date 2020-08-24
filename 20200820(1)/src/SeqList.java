@@ -241,10 +241,59 @@ public class SeqList {
     }
 
 
-    //反转单链表（头插法）
-    public Node reverseList2() {
-        Node
+
+    //求单链表中间节点
+    public Node middleNode(Node head) {
+        int count = 0;
+        Node node = head;
+        while(node != null) {
+            count++;
+            node  = node.next;
+        }
+        count = count/2;
+        Node cur = head;
+        for(int i = 0; i< count; i++) {
+            cur = cur.next;
+        }
+        return cur;
     }
 
+    //求单链表中间节点（只遍历单链表一遍）
+    public Node middleNode2(Node head) {
+        Node slow = head;
+        Node fast = head;
+        //只要有一个为空说明走到尾巴了
+        while(fast  != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+
+
+
+    public Node FindKthToTail(Node head,int k) {
+        int size = size(head);
+        if(k <0 || k >size) {
+            return null;
+        }
+        int val = size-k;
+        Node cur = head;
+        for(int i = 0; i < val; i++) {
+            cur = cur.next;
+        }
+        return cur;
+
+    }
+    public int size(Node head) {
+        int count = 0;
+        Node cur = head;
+        while(cur != null) {
+            count++;
+            cur = cur.next;
+        }
+        return count;
+    }
 
 }
